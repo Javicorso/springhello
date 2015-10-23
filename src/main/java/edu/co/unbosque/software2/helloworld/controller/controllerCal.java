@@ -9,17 +9,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
  * @author alejandro
  */
 @Controller
-public class DefaultController {
+public class controllerCal {
 
-    @RequestMapping(value = "/sayhi", method = RequestMethod.GET)
-    public String index(ModelMap map) {
-        map.put("msg", "Hello Spring 4 Web MVC!");
+    @RequestMapping(value = "/calculo", method = RequestMethod.GET)
+    public String index(@RequestParam("valA") int valA,@RequestParam("valB") int valB, ModelMap map) {
+        int res = valA + valB;
+        map.put("msg", res);
         return "index";
     }
     
